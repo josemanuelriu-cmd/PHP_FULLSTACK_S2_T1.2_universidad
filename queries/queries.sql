@@ -1,5 +1,4 @@
--- 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. 
---El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
+-- 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. --El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
 SELECT p.apellido1, p.apellido2, p.nombre 
   FROM persona p 
   INNER alumno_se_matricula_asignatura am 
@@ -26,7 +25,10 @@ SELECT p.nombre, p.apellido1, p.apellido2, p.nif
   WHERE p.telefono IS NULL;
 
 -- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
-SELECT  FROM  ORDER BY;
+SELECT a.id, a.nombre, a.cuatrimestre, a.curso, a.id_grado 
+  FROM asignatura a 
+  where a.cuatrimestre=1 and a.curso=3
+  ORDER BY;
 
 -- 6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom. (apellido1, apellido2, nombre, departamento)
 SELECT  FROM  ORDER BY;
