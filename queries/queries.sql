@@ -17,7 +17,7 @@ SELECT id, nombre, apellido1, apellido2, fecha_nacimiento
 -- 4. Retorna el llistat de professors/es que no han donat d'alta el seu número de telèfon en la base de dades i a més el seu NIF acaba en K. (nombre, apellido1, apellido2, nif)
 SELECT nombre, apellido1, apellido2, nif
   FROM persona 
-  WHERE tipo='professor' and telefono IS NULL;
+  WHERE tipo='profesor' and telefono IS NULL and RIGHT(nif,1)='K';
 
 -- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, 
 --en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
@@ -26,7 +26,14 @@ SELECT a.id, a.nombre, a.cuatrimestre, a.curso, a.id_grado
   WHERE a.cuatrimestre=1 and a.curso=3 and id_grado=7;
 
 -- 6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom. (apellido1, apellido2, nombre, departamento)
-SELECT  FROM  ORDER BY;
+SELECT p.apellido1, p.apellido2, p.nombre, d.nombre
+  FROM persona AS p
+  INNER JOIN profesor as pr
+	  ON pr.id_profesor=p.id
+	INNER JOIN departamento as d
+    ON d.id=pr.id_departamento
+	WHERE p.tipo='profesor'
+    ORDER BY p.apellido1, p.apellido2, p.nombre, d.nombre;
 
 -- 7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M. (nombre, anyo_inicio, anyo_fin)
 SELECT  FROM  ORDER BY;
