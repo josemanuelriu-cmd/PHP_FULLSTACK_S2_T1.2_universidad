@@ -19,10 +19,11 @@ SELECT nombre, apellido1, apellido2, nif
   FROM persona 
   WHERE tipo='professor' and telefono IS NULL;
 
--- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
+-- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, 
+--en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
 SELECT a.id, a.nombre, a.cuatrimestre, a.curso, a.id_grado 
   FROM asignatura as a 
-  WHERE a.cuatrimestre=1 and a.curso=3
+  WHERE a.cuatrimestre=1 and a.curso=3 and id_grado=7
   ORDER BY;
 
 -- 6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom. (apellido1, apellido2, nombre, departamento)
