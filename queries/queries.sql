@@ -19,8 +19,7 @@ SELECT nombre, apellido1, apellido2, nif
   FROM persona 
   WHERE tipo='profesor' and telefono IS NULL and RIGHT(nif,1)='K';
 
--- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, 
---en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
+-- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
 SELECT a.id, a.nombre, a.cuatrimestre, a.curso, a.id_grado 
   FROM asignatura as a 
   WHERE a.cuatrimestre=1 and a.curso=3 and a.id_grado=7;
@@ -47,10 +46,21 @@ ON p.id=am.id_alumno
 WHERE p.nif='26902806M';
 
 -- 8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015). (nombre)
-SELECT  FROM  ORDER BY;
+SELECT DISTINCT d.nombre 
+FROM departamento d
+JOIN profesor pr ON pr.id_departamento=d.id
+JOIN asignatura a ON a.id_profesor=pr.id_profesor
+JOIN grado g ON g.id=a.id_grado
+WHERE g.nombre='Grado en Ingeniería Informática (Plan 2015)';
 
 -- 9. Retorna un llistat amb tots els alumnes que s'han matriculat en alguna assignatura durant el curs escolar 2018/2019. (nombre, apellido1, apellido2)
-SELECT  FROM  ORDER BY;
+SELECT DISTINCT p.nombre, p.apellido1, p.apellido2  
+FROM persona p
+INNER JOIN alumno_se_matricula_asignatura as am
+ON am.id_alumno=p.id
+INNER JOIN curso_escolar as ce
+ON ce.id=am.id_curso_escolar
+where ce.anyo_inicio=2018;
 
 -- Resol les 6 següents consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN.
 -- 10. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats. El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom. (departamento, apellido1, apellido2, nombre)
