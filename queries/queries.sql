@@ -104,7 +104,7 @@ LEFT JOIN profesor pr ON pr.id_departamento=d.id
 LEFT JOIN asignatura a ON pr.id_profesor=a.id_profesor;
 
 -- 16. Retorna el nombre total d'alumnes que hi ha. (total)
-
+SELECT COUNT(id) AS total FROM persona WHERE tipo='alumno';
 
 -- 17. Calcula quants alumnes van néixer en 1999. (total)
 
