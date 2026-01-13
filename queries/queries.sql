@@ -107,7 +107,7 @@ LEFT JOIN asignatura a ON pr.id_profesor=a.id_profesor;
 SELECT COUNT(id) AS total FROM persona WHERE tipo='alumno';
 
 -- 17. Calcula quants alumnes van néixer en 1999. (total)
-
+SELECT COUNT(id) AS total FROM persona WHERE tipo='alumno' AND YEAR(fecha_nacimiento)=1999;
 
 -- 18. Calcula quants professors/es hi ha en cada departament. El resultat només ha de mostrar dues columnes, una amb el nom del departament i una altra amb el nombre de professors/es que hi ha en aquest departament. El resultat només ha d'incloure els departaments que tenen professors/es associats i haurà d'estar ordenat de major a menor pel nombre de professors/es. (departamento, total)
 
