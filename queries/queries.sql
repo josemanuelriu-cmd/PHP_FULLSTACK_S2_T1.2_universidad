@@ -1,14 +1,14 @@
 -- 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. --El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
 SELECT p.apellido1, p.apellido2, p.nombre 
-  FROM persona p 
-  INNER alumno_se_matricula_asignatura am 
+  FROM persona as p 
+  INNER alumno_se_matricula_asignatura as am 
   ON am.id_alumno=p.id
   ORDER BY p.apellido1 ASC, p.apellido2 ASC, p.nombre ASC;
 
 -- 2. Esbrina el nom i els dos cognoms dels alumnes que no han donat d'alta el seu número de telèfon en la base de dades. (nombre, apellido1, apellido2)
 SELECT p.nombre, p.apellido1, p.apellido2 
-  FROM persona p
-  INNER alumno_se_matricula_asignatura am 
+  FROM persona as p
+  INNER alumno_se_matricula_asignatura as am 
   ON am.id_alumno=p.id
   WHERE p.telefono IS NULL;
 
@@ -19,14 +19,14 @@ SELECT id, nombre, apellido1, apellido2, fecha_nacimiento
 
 -- 4. Retorna el llistat de professors/es que no han donat d'alta el seu número de telèfon en la base de dades i a més el seu NIF acaba en K. (nombre, apellido1, apellido2, nif)
 SELECT p.nombre, p.apellido1, p.apellido2, p.nif
-  FROM persona p
-  INNER profesor pr 
+  FROM persona as p
+  INNER profesor as pr 
   ON pr.id_profesor=p.id 
   WHERE p.telefono IS NULL;
 
 -- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
 SELECT a.id, a.nombre, a.cuatrimestre, a.curso, a.id_grado 
-  FROM asignatura a 
+  FROM asignatura as a 
   where a.cuatrimestre=1 and a.curso=3
   ORDER BY;
 
