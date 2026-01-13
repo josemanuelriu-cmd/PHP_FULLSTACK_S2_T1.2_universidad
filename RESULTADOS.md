@@ -5,7 +5,9 @@
 ✅ 1 correctas de 10 queries
 
 ## ❌ Query 1: Error
-- **Descripción**: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer ' at line 2
+- **Descripción**: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alumno_se_matricula_asignatura am 
+  ON am.id_alumno=p.id
+  ORDER BY p.apellido1' at line 4
 
 
 ## ❌ Query 2: Error
@@ -16,7 +18,7 @@
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.49 ms
+⏱ Tiempo: 0.35 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
@@ -28,7 +30,7 @@
 
 
 ## ❌ Query 5: Error
-- **Descripción**: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM  ORDER BY' at line 2
+- **Descripción**: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
 
 
 ## ❌ Query 6: Error
