@@ -1,16 +1,29 @@
--- 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
-SELECT p.apellido1, p.apellido2, p.nombre FROM persona p INNER alumno_se_matricula_asignatura am ON am.id_alumno=p.id
-  ORDER BY p.apellido1, p.apellido2, p.nombre;
+-- 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. 
+--El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
+SELECT p.apellido1, p.apellido2, p.nombre 
+  FROM persona p 
+  INNER alumno_se_matricula_asignatura am 
+  ON am.id_alumno=p.id
+  ORDER BY p.apellido1 ASC, p.apellido2 ASC, p.nombre ASC;
 
 -- 2. Esbrina el nom i els dos cognoms dels alumnes que no han donat d'alta el seu número de telèfon en la base de dades. (nombre, apellido1, apellido2)
-SELECT nombre,apellido1, apellido2 FROM persona WHERE telefono IS NULL;
+SELECT p.nombre, p.apellido1, p.apellido2 
+  FROM persona p
+  INNER alumno_se_matricula_asignatura am 
+  ON am.id_alumno=p.id
+  WHERE p.telefono IS NULL;
 
 -- 3. Retorna el llistat dels alumnes que van néixer en 1999. (id, nombre, apellido1, apellido2, fecha_nacimiento)
-SELECT id, nombre, apellido1, apellido2, fecha_nacimiento FROM persona WHERE YEAR(fecha_nacimiento)='1999';
-
+SELECT id, nombre, apellido1, apellido2, fecha_nacimiento 
+  FROM persona 
+  WHERE YEAR(fecha_nacimiento)='1999';
 
 -- 4. Retorna el llistat de professors/es que no han donat d'alta el seu número de telèfon en la base de dades i a més el seu NIF acaba en K. (nombre, apellido1, apellido2, nif)
-SELECT  FROM  ORDER BY;
+SELECT p.nombre, p.apellido1, p.apellido2, p.nif
+  FROM persona p
+  INNER profesor pr 
+  ON pr.id_profesor=p.id 
+  WHERE p.telefono IS NULL;
 
 -- 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7. (id, nombre, cuatrimestre, curso, id_grado)
 SELECT  FROM  ORDER BY;
