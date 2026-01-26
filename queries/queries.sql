@@ -74,7 +74,7 @@ ORDER BY d.nombre ASC, p.apellido1 ASC, p.apellido2 ASC, p.nombre ASC;
 -- 11. Retorna un llistat amb els professors/es que no estan associats a un departament. (apellido1, apellido2, nombre)
 SELECT DISTINCT p.apellido1, p.apellido2, p.nombre 
 FROM persona p
-RIGHT JOIN profesor pr ON pr.id_profesor=p.id
+JOIN profesor pr ON pr.id_profesor=p.id
 LEFT JOIN departamento d ON pr.id_departamento = d.id
 WHERE d.id IS NULL;
 
